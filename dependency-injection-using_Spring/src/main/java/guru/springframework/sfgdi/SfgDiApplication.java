@@ -19,8 +19,9 @@ public class SfgDiApplication {
 		//providing those instantiated object here
 		//if name is not given to the bean By default, Spring takes class name
 
-		String greeting = myController.sayHello();
-		System.out.println(greeting);
+		//String greeting = myController.sayHello();
+		System.out.println("------Primary Bean");
+		System.out.println(myController.sayHello());
 
 		//--------Applyinh Spring here
 		System.out.println("------Property");
@@ -34,6 +35,10 @@ public class SfgDiApplication {
 		System.out.println("-------Constructor");
 		ConstructorInjectionController constructorInjectionController = (ConstructorInjectionController) ctx.getBean("constructorInjectionController");
 		System.out.println(constructorInjectionController.getGreeting());
+
+
+
+
 
 	}
 

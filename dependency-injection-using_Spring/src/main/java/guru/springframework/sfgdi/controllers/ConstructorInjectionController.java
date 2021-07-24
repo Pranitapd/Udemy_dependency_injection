@@ -11,7 +11,8 @@ public class ConstructorInjectionController {
 
     @Autowired //optional
     //Qualifire name same as class name but first letter lowercase
-    public ConstructorInjectionController(@Qualifier("constructorGreetingServiceImpl") GreetingService greetingService){
+    //public ConstructorInjectionController(@Qualifier("constructorGreetingServiceImpl") GreetingService greetingService){
+    public ConstructorInjectionController( GreetingService greetingService){    //to check if this uses primary bean
         this.greetingService = greetingService;
     }
 
