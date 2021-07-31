@@ -23,7 +23,7 @@ public class GreetingServiceConfig {
     }
 
     @Profile("ES")
-    @Bean//("i18nService")
+    @Bean  ("i18nService")
     GreetingService esgreetingService(GreetingServiceFactory greetingServiceFactory){
         return greetingServiceFactory.getGreetingService("ES");
     }

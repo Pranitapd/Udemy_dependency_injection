@@ -1,6 +1,8 @@
 package guru.springframework.sfgdi;
 
 import guru.springframework.sfgdi.controllers.*;
+import guru.springframework.sfgdi.services.PrototypeBean;
+import guru.springframework.sfgdi.services.SingletonBean;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -37,7 +39,18 @@ public class SfgDiApplication {
 		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
 		System.out.println(i18nController.sayHello());	//since we have added EN as active profile in application.properties the EN bean will get picked up
 
+		System.out.println("------Bean Scopes-------------");
+		System.out.println("------Singleton-------------");
+		SingletonBean singletonBean1 = ctx.getBean(SingletonBean.class);
+		SingletonBean singletonBean2 = ctx.getBean(SingletonBean.class);
+		System.out.println("s1 " + singletonBean1.getMyScope() +" "+ singletonBean1);
+		System.out.println("s2 " + singletonBean2.getMyScope() + " " + singletonBean2);
 
+		System.out.println("------Prototype-------------");
+		PrototypeBean prototypeBean1 = ctx.getBean(PrototypeBean.class);
+		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
+		System.out.println("p1 " + prototypeBean1.getMyScope() + " " + prototypeBean1);
+		System.out.println("p2 " + prototypeBean2.getMyScope() + " " + prototypeBean2);
 	}
 
 }
